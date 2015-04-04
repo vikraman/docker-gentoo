@@ -8,8 +8,8 @@ ADD bb /tar
 # Download stage3 tarball
 ADD http://mirror.cse.iitk.ac.in/gentoo/releases/amd64/autobuilds/20150402/stage3-amd64-20150402.tar.bz2 /
 
-# Exclude files for tar
-ADD /exclude /
+# Exclude file for tar
+ADD exclude /
 
 # Extract stage3 tarball
 RUN ["/tar", "xvjpf", "stage3-amd64-20150402.tar.bz2", "-X", "exclude"]
