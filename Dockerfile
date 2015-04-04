@@ -6,7 +6,7 @@ MAINTAINER Vikraman
 ADD bb /tar
 
 # Download stage3 tarball
-ADD http://mirror.cse.iitk.ac.in/gentoo/releases/amd64/autobuilds/20150402/stage3-amd64-20150402.tar.bz2 /
+ADD http://ftp.ussg.iu.edu/linux/gentoo/releases/amd64/autobuilds/20150402/stage3-amd64-20150402.tar.bz2 /
 
 # Exclude file for tar
 ADD exclude /
