@@ -6,16 +6,16 @@ MAINTAINER Vikraman
 ADD bb /tar
 
 # Download stage3 tarball
-ADD http://ftp.ussg.iu.edu/linux/gentoo/releases/amd64/autobuilds/20150402/stage3-amd64-20150402.tar.bz2 /
+ADD http://ftp.ussg.iu.edu/linux/gentoo/releases/amd64/autobuilds/20160126/stage3-amd64-20160126.tar.bz2 /
 
 # Exclude file for tar
 ADD exclude /
 
 # Extract stage3 tarball
-RUN ["/tar", "xvjpf", "stage3-amd64-20150402.tar.bz2", "-X", "exclude"]
+RUN ["/tar", "xvjpf", "stage3-amd64-20160126.tar.bz2", "-X", "exclude"]
 
 # Cleanup
-RUN rm -f tar exclude stage3-amd64-20150402.tar.bz2
+RUN rm -f tar exclude stage3-amd64-20160126.tar.bz2
 
 # Setup the (virtually) current runlevel
 RUN echo "default" > /run/openrc/softlevel
