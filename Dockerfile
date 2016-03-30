@@ -2,21 +2,23 @@ FROM scratch
 
 MAINTAINER Vikraman
 
+# The stage3 release version
+ENV RELEASE 20160317
+
 # Use busybox binary as tar
 ADD bb /tar
 
 # Download stage3 tarball
-ADD http://ftp.ussg.iu.edu/linux/gentoo/releases/amd64/autobuilds/20160126/stage3-amd64-20160126.tar.bz2 /
+ADD http://ftp.ussg.iu.edu/linux/gentoo/releases/amd64/autobuilds/${RELEASE}/stage3-amd64-${RELEASE}.tar.bz2 /stage3.tar.bz2
 
 # Exclude file for tar
 ADD exclude /
 
 # Extract stage3 tarball
-RUN ["/tar", "xvjpf", "stage3-amd64-20160126.tar.bz2", "-X", "exclude"]
+RUN ["/tar", "xjpf", "stage3.tar.bz2", "-X", "exclude"]
 
 # Cleanup
-RUN rm -f tar exclude stage3-amd64-20160126.tar.bz2
-
+RUN rm -f tar exclude stage3.tar.bz2
 
 # Setup the rc_sys
 RUN sed -e 's/#rc_sys=""/rc_sys="lxc"/g' -i /etc/rc.conf
